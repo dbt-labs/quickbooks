@@ -1,0 +1,22 @@
+#settings specifically for this models directory
+#config other dbt settings within ~/.dbt/profiles.yml
+name: 'rb-quickbooks'
+version: '1.0'
+
+source-paths: ["models"]
+target-path: "target"
+clean-targets: ["target"]
+test-paths: ["test"]
+
+model-defaults:
+  materialized: false
+  enabled: true
+
+
+models:
+  base:
+    materialized: false
+    enabled: true
+  transform:
+    materialized: false 
+    enabled: true
