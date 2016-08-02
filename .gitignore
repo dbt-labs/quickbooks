@@ -1,5 +1,2 @@
 /dbt_modules
 /target
-/venv
-/reports
-/notebooks/.ipynb_checkpoints

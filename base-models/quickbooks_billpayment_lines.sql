@@ -1,10 +1,10 @@
 with lines as (
 
-  select * from rb_qbo_integration.quickbooks_billpayments__line
+  select * from quickbooks.quickbooks_billpayments__line
 
 ), links as (
 
-  select * from rb_qbo_integration.quickbooks_billpayments__line__linkedtxn
+  select * from quickbooks.quickbooks_billpayments__line__linkedtxn
 
 )
 

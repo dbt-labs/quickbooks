@@ -5,4 +5,4 @@ select
   _rjm_source_key_id::int as purchase_id,
   accountbasedexpenselinedetail__accountref__value::int as account_id
 from
-  rb_qbo_integration.quickbooks_purchases__line
+  quickbooks.quickbooks_purchases__line

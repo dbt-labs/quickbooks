@@ -5,4 +5,4 @@ select
   _rjm_source_key_id::int as bill_id,
   accountbasedexpenselinedetail__accountref__value::int as account_id
 from
-  rb_qbo_integration.quickbooks_bills__line
+  quickbooks.quickbooks_bills__line

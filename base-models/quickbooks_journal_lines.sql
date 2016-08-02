@@ -7,4 +7,4 @@ select
   journalentrylinedetail__accountref__value::integer as account_id,
   journalentrylinedetail__postingtype as posting_type
 from
-  rb_qbo_integration.quickbooks_journalentries__line
+  quickbooks.quickbooks_journalentries__line

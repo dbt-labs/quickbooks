@@ -11,7 +11,7 @@ select
   entityref__value::int as vendor_id,
   entityref__name as entity_name,
   entityref__type as entity_type,
-  metadata__createtime::datetime as created_at,
-  metadata__lastupdatedtime::datetime as updated_at
+  metadata__createtime as created_at,
+  metadata__lastupdatedtime as updated_at
 from
-  rb_qbo_integration.quickbooks_purchases
+  quickbooks.quickbooks_purchases

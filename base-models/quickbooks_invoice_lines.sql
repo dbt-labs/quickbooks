@@ -6,6 +6,6 @@ select
   _rjm_source_key_id::int as invoice_id,
   salesitemlinedetail__itemref__value::int as item_id
 from
-  rb_qbo_integration.quickbooks_invoices__line
+  quickbooks.quickbooks_invoices__line
 where
   detailtype = 'SalesItemLineDetail'
