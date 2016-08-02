@@ -15,3 +15,6 @@ models:
   quickbooks:
     tables:
       materialized: true
+      quickbooks_general_ledger:
+        dist: id
+        sort: txn_date

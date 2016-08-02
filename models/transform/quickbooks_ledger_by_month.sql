@@ -8,7 +8,7 @@ with accounts as (
 
 ), months as (
 
-  select * from {{ref('months')}}
+  select * from {{ref('quickbooks_months')}}
 
 ), monthly_account_totals as (
 
