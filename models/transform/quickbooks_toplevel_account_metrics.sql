@@ -1,6 +1,6 @@
 with ledger as (
 
-  select * from {{ref('general_ledger')}}
+  select * from {{ref('quickbooks_general_ledger')}}
 
 ), accounts_map as (
 
