@@ -4,7 +4,7 @@ with ledger as (
 
 ), accounts_map as (
 
-  select * from {{ref('parent_accounts_map')}}
+  select * from {{ref('quickbooks_parent_accounts_map')}}
 
 ), accounts as (
 
