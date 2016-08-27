@@ -4,7 +4,7 @@ select
   fullyqualifiedname as fully_qualified_name,
   active,
   currentbalance as current_balance,
-  parentref__value::integer as parent_account_id,
+  nullif(parentref__value, '')::integer as parent_account_id,
   accounttype as type,
   accountsubtype as subtype,
   subaccount,
