@@ -9,6 +9,8 @@ analysis-paths: ["analysis"]
 
 models:
   quickbooks:
+    enabled: true
+    materialized: view
     tables:
       materialized: table
       quickbooks_general_ledger:
