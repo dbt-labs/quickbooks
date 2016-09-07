@@ -7,14 +7,10 @@ clean-targets: ["target"]
 test-paths: ["test"]
 analysis-paths: ["analysis"]
 
-model-defaults:
-  materialized: false
-  enabled: true
-
 models:
   quickbooks:
     tables:
-      materialized: true
+      materialized: table
       quickbooks_general_ledger:
         dist: id
         sort: txn_date
