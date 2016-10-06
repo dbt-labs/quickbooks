@@ -1,10 +1,10 @@
 select
   --this id is only unique within a given entry_id; may also want to create a globally unique id for this table.
   id::int,
-  _rjm_source_key_id as entry_id,
+  {{ var('source_key_id_field') }} as entry_id,
   amount,
   description,
   journalentrylinedetail__accountref__value::integer as account_id,
   journalentrylinedetail__postingtype as posting_type
 from
-  quickbooks.quickbooks_journalentries__line
+  {{ var('base.journal_entries_line') }}

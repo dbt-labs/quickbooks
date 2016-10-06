@@ -3,9 +3,9 @@ select
   id::int,
   amount,
   description,
-  _rjm_source_key_id::int as invoice_id,
+  {{ var('source_key_id_field') }}::int as invoice_id,
   salesitemlinedetail__itemref__value::int as item_id
 from
-  quickbooks.quickbooks_invoices__line
+  {{ var('base.invoices_lines') }}
 where
   detailtype = 'SalesItemLineDetail'

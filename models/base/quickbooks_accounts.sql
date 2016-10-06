@@ -12,4 +12,4 @@ select
   metadata__createtime as created_at,
   metadata__lastupdatedtime as updated_at
 from
-  quickbooks.quickbooks_accounts
+  {{ var('base.accounts') }}

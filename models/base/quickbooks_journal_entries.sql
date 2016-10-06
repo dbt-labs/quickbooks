@@ -1,9 +1,8 @@
 select
-  id::int,
-  totalamt as total,
+  id::integer,
   txndate::date as txn_date,
-  deposittoaccountref__value::int as account_id,
+  adjustment,
   metadata__createtime as created_at,
   metadata__lastupdatedtime as updated_at
 from
-  quickbooks.quickbooks_deposits
+  {{ var('base.journal_entries') }}

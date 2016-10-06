@@ -8,4 +8,4 @@ select
   metadata__createtime as created_at,
   metadata__lastupdatedtime as updated_at
 from
-  quickbooks.quickbooks_items
+  {{ var('base.items') }}

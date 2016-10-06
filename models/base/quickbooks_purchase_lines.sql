@@ -2,7 +2,7 @@ select
   --this id is only unique within a given purchase_id; may also want to create a globally unique id for this table.
   id::int,
   amount,
-  _rjm_source_key_id::int as purchase_id,
+  {{ var('source_key_id_field') }}::int as purchase_id,
   accountbasedexpenselinedetail__accountref__value::int as account_id
 from
-  quickbooks.quickbooks_purchases__line
+  {{ var('base.purchases_line') }}
