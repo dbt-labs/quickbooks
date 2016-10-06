@@ -3,6 +3,7 @@ select
   id::int,
   amount,
   {{ var('source_key_id_field') }}::int as purchase_id,
-  accountbasedexpenselinedetail__accountref__value::int as account_id
+  accountbasedexpenselinedetail__accountref__value::int as account_id,
+  nullif(accountbasedexpenselinedetail__classref__value, '')::bigint as class_id
 from
   {{ var('base.purchases_line') }}

@@ -18,6 +18,7 @@ select
   lines._id as id,
   lines.deposit_id,
   lines.amount,
+  nullif(lines.depositlinedetail__classref__value, '')::bigint as class_id,
   lines.depositlinedetail__accountref__value::int as account_id,
   links.txnid::int as payment_id
 from lines

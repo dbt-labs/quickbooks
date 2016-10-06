@@ -18,6 +18,9 @@ models:
       quickbooks_general_ledger:
         dist: id
         sort: txn_date
+    base:
+      materialized: ephemeral
+
     vars:
       "base.accounts"                     : "quickbooks.quickbooks_accounts"
       "base.bills_line"                   : "quickbooks.quickbooks_bills__line"
@@ -25,6 +28,7 @@ models:
       "base.billpayments_line"            : "quickbooks.quickbooks_billpayments__line"
       "base.billpayments_line__linkedtxn" : "quickbooks.quickbooks_billpayments__line__linkedtxn"
       "base.bills"                        : "quickbooks.quickbooks_bills"
+      "base.classes"                      : "quickbooks.quickbooks_classes"
       "base.customers"                    : "quickbooks.quickbooks_customers"
       "base.deposits_line"                : "quickbooks.quickbooks_deposits__line"
       "base.deposits_line_linkedtxn"      : "quickbooks.quickbooks_deposits__line__linkedtxn"

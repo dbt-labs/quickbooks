@@ -28,7 +28,8 @@ with purchases as (
     case nvl(purchases.credit, false::bool)
       when true then 'credit'
     else 'debit'
-    end as payed_to_transaction_type
+    end as payed_to_transaction_type,
+    purchase_lines.class_id
   from purchases
     inner join purchase_lines on purchases.id = purchase_lines.purchase_id
 
@@ -36,9 +37,9 @@ with purchases as (
 
 select id, txn_date, amount, payed_from_acct_id as account_id,
   payed_from_transaction_type as transaction_type,
-  'purchase' as source
+  'purchase' as source, class_id
 from d1
 union all
 select id, txn_date, amount, payed_to_acct_id,
-  payed_to_transaction_type, 'purchase'
+  payed_to_transaction_type, 'purchase', class_id
 from d1
