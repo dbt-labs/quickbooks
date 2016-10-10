@@ -10,16 +10,20 @@ with payments as (
 
 select payments.id, txn_date, total as amount, account_id,
   'debit' as transaction_type,
-  'payment' as source,
-  null::bigint as class_id
+  'payment' as source
+  {% if var('uses_classes') == "true" %}
+    , null::bigint as class_id
+  {% endif %}
 from payments
 
 union all
 
 select payments.id, txn_date, total, ar.id,
   'credit',
-  'payment',
-  null::bigint
+  'payment'
+  {% if var('uses_classes') == "true" %}
+    , null::bigint
+  {% endif %}
 from payments
   join (select id from {{ref('quickbooks_accounts')}} where type = 'Accounts Receivable') ar
     on 1 = 1

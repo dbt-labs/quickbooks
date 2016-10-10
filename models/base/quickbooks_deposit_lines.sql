@@ -18,8 +18,10 @@ select
   lines._id as id,
   lines.deposit_id,
   lines.amount,
-  nullif(lines.depositlinedetail__classref__value, '')::bigint as class_id,
-  lines.depositlinedetail__accountref__value::int as account_id,
+  {% if var('uses_classes') == "true" %}
+    nullif(lines.depositlinedetail__classref__value::varchar, '')::bigint as class_id,
+  {% endif %}
+  nullif(lines.depositlinedetail__accountref__value::varchar, '')::int as account_id,
   links.txnid::int as payment_id
 from lines
   left outer join links on

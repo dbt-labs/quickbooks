@@ -6,9 +6,9 @@ select
   unappliedamt as unapplied_amt,
   --creditcardpayment__creditchargeinfo__processpayment as cc_pmt_processed,
   processpayment as payment_processed,
-  deposittoaccountref__value::int as account_id,
+  nullif(deposittoaccountref__value::varchar, '')::int as account_id,
   customerref__value::int as customer_id,
-  paymentmethodref__value::int as payment_method_id,
+  nullif(paymentmethodref__value::varchar, '')::int as payment_method_id,
   metadata__createtime as created_at,
   metadata__lastupdatedtime as updated_at
 from
