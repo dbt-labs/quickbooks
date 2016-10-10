@@ -10,7 +10,7 @@ select
   --deliveryinfo__deliverytime::datetime as delivery_time,
   -- shipdate?
   emailstatus as email_status,
-  docnumber::int as doc_number,
+  docnumber as doc_number,
   customerref__value::int as customer_id,
   metadata__createtime as created_at,
   metadata__lastupdatedtime as updated_at
