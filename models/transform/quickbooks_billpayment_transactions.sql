@@ -22,13 +22,13 @@ with bill_payments as (
 
 select
   id, txn_date, amount, payment_account_id as account_id, 'credit' as transaction_type,
-  'bill payment' as source
+  'bill payment' as source, null::bigint as class_id
 from
   d1
 
 union all
 
 select
-  id, txn_date, amount, ap_id, 'debit', 'bill payment'
+  id, txn_date, amount, ap_id, 'debit', 'bill payment', null::bigint
 from
   d1

@@ -1,9 +1,8 @@
 select
   id::int,
-  companyname as company_name,
-  active,
+  displayname as name,
   balance,
   metadata__createtime as created_at,
   metadata__lastupdatedtime as updated_at
 from
-  quickbooks.quickbooks_customers
+  {{ var('base.vendors') }}

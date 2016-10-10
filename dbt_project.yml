@@ -7,6 +7,8 @@ clean-targets: ["target"]
 test-paths: ["test"]
 analysis-paths: ["analysis"]
 
+profile: contactually
+
 models:
   quickbooks:
     enabled: true
@@ -16,3 +18,30 @@ models:
       quickbooks_general_ledger:
         dist: id
         sort: txn_date
+    base:
+      materialized: ephemeral
+
+    vars:
+      "base.accounts"                     : "quickbooks.quickbooks_accounts"
+      "base.bills_line"                   : "quickbooks.quickbooks_bills__line"
+      "base.billpayments"                 : "quickbooks.quickbooks_billpayments"
+      "base.billpayments_line"            : "quickbooks.quickbooks_billpayments__line"
+      "base.billpayments_line__linkedtxn" : "quickbooks.quickbooks_billpayments__line__linkedtxn"
+      "base.bills"                        : "quickbooks.quickbooks_bills"
+      "base.classes"                      : "quickbooks.quickbooks_classes"
+      "base.customers"                    : "quickbooks.quickbooks_customers"
+      "base.deposits_line"                : "quickbooks.quickbooks_deposits__line"
+      "base.deposits_line_linkedtxn"      : "quickbooks.quickbooks_deposits__line__linkedtxn"
+      "base.deposits"                     : "quickbooks.quickbooks_deposits"
+      "base.invoices_lines"               : "quickbooks.quickbooks_invoices__line"
+      "base.invoices"                     : "quickbooks.quickbooks_invoices"
+      "base.items"                        : "quickbooks.quickbooks_items"
+      "base.journal_entries"              : "quickbooks.quickbooks_journalentries"
+      "base.journal_entries_line"         : "quickbooks.quickbooks_journalentries__line"
+      "base.payments"                     : "quickbooks.quickbooks_payments"
+      "base.purchases_line"               : "quickbooks.quickbooks_purchases__line"
+      "base.purchases"                    : "quickbooks.quickbooks_purchases"
+      "base.vendors"                      : "quickbooks.quickbooks_vendors"
+      "level_0_id_field"                  : "_sdc_level_0_id"
+      "source_key_id_field"               : "_sdc_source_key_id"
+

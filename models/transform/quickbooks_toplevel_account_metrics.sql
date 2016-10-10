@@ -26,7 +26,7 @@ with ledger as (
 )
 
 select
-  date_trunc('month', txn_date)::date as date_month,
+  txn_date::date as "date",
   top_level_account_id,
   sum(adj_amount) as amount
 from d1
