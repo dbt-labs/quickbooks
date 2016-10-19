@@ -23,9 +23,9 @@ with bills as (
 )
 
 select id, txn_date, amount, payed_to_acct_id as account_id,
-  'debit' as transaction_type, 'bill' as source
+  'debit'::varchar(16) as transaction_type, 'bill'::varchar(16) as source
   {% if var('uses_classes') == "true" %}
-    , class_id
+    , class_id::bigint
   {% endif %}
 
 from d1
@@ -35,6 +35,6 @@ union all
 select id, txn_date, amount, ap_account_id,
   'credit' as transaction_type, 'bill'
   {% if var('uses_classes') == "true" %}
-    , class_id
+    , class_id::bigint
   {% endif %}
 from d1

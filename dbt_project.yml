@@ -16,12 +16,8 @@ models:
       quickbooks_general_ledger:
         dist: id
         sort: txn_date
-      quickbooks_parent_class_map:
-        enabled: false    # set to true if this quickbooks install uses classes
     base:
       materialized: ephemeral
-      quickbooks_classes:
-        enabled: false    # set to true if this quickbooks install uses classes
 
     vars:
       "base.accounts"                     : "quickbooks.quickbooks_accounts"
