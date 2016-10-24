@@ -5,8 +5,8 @@ with unioned as (
     txn_date,
     amount,
     account_id,
-    transaction_type::varchar(16),
-    source::varchar(16)
+    transaction_type::varchar(64),
+    source::varchar(64)
     {% if var('uses_classes') == "true" %}
       , class_id
     {% endif %}
