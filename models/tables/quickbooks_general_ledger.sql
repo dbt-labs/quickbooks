@@ -1,6 +1,17 @@
 with unioned as (
 
-  select id, txn_date, amount, account_id, transaction_type::varchar(16), source::varchar(16), class_id from {{ref('quickbooks_bill_transactions')}}
+  select
+    id,
+    txn_date,
+    amount,
+    account_id,
+    transaction_type::varchar(16),
+    source::varchar(16)
+    {% if var('uses_classes') == "true" %}
+      , class_id
+    {% endif %}
+  from {{ref('quickbooks_bill_transactions')}}
+
   union all
   select * from {{ref('quickbooks_billpayment_transactions')}}
   union all
