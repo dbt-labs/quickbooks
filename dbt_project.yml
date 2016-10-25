@@ -48,4 +48,3 @@ models:
       "source_key_id_field"               : "_sdc_source_key_id"
       uses_classes                        : "false"   # set to true if this quickbooks install uses classes
 
-profile: uservoice
