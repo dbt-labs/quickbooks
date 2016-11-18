@@ -12,7 +12,11 @@ with bill_payments as (
 ), d1 as (
 
   select
-    bp.id, bp.txn_date, bpl.amount, payment_account_id, ap.id as ap_id
+    bp.id,
+    bp.txn_date,
+    bpl.amount,
+    payment_account_id,
+    ap.id as ap_id
   from bill_payments bp
     inner join billpayment_lines bpl on bp.id = bpl.bill_payment_id
     join (select id from {{ref('quickbooks_accounts')}} where type = 'Accounts Payable') ap
@@ -21,21 +25,25 @@ with bill_payments as (
 )
 
 select
-  id, txn_date, amount, payment_account_id as account_id, 'credit' as transaction_type,
-  'bill payment' as source
-  {% if var('uses_classes') == "true" %}
-    , null::bigint as class_id
-  {% endif %}
+  id,
+  txn_date,
+  amount,
+  payment_account_id as account_id,
+  'credit' as transaction_type,
+  'bill payment' as source,
+  null::bigint as class_id
 from
   d1
 
 union all
 
 select
-  id, txn_date, amount, ap_id, 'debit', 'bill payment'
-
-  {% if var('uses_classes') == "true" %}
-    , null::bigint
-  {% endif %}
+  id,
+  txn_date,
+  amount,
+  ap_id,
+  'debit',
+  'bill payment',
+  null::bigint
 from
   d1

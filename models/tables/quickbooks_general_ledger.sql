@@ -6,10 +6,8 @@ with unioned as (
     amount,
     account_id,
     transaction_type::varchar(64),
-    source::varchar(64)
-    {% if var('uses_classes') == "true" %}
-      , class_id
-    {% endif %}
+    source::varchar(64),
+    class_id
   from {{ref('quickbooks_bill_transactions')}}
 
   union all
