@@ -3,12 +3,7 @@ select
   id::int,
   amount,
   {{ var('source_key_id_field') }}::int as purchase_id,
-  case
-    when {{ var('uses_classes') }} = true
-      then nullif(accountbasedexpenselinedetail__classref__value::varchar, '')::bigint
-    else
-      null::bigint
-  end as class_id,
+  nullif(accountbasedexpenselinedetail__classref__value::varchar, '')::bigint as class_id,
   accountbasedexpenselinedetail__accountref__value::int as account_id
 from
   {{ var('base.purchases_line') }}
