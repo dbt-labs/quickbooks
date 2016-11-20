@@ -5,9 +5,7 @@ select
   amount,
   description,
   journalentrylinedetail__accountref__value::integer as account_id,
-  {% if var('uses_classes') == "true" %}
-    nullif(journalentrylinedetail__classref__value::varchar, '')::bigint as class_id,
-  {% endif %}
+  nullif(journalentrylinedetail__classref__value::varchar, '')::bigint as class_id,
   journalentrylinedetail__postingtype as posting_type
 from
   {{ var('base.journal_entries_line') }}

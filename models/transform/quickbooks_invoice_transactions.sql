@@ -20,11 +20,8 @@ with invoice_lines as (
     invoices.id,
     invoices.txn_date,
     invoice_lines.amount,
-    items.account_id
-    {% if var('uses_classes') == "true" %}
-      , invoice_lines.class_id
-    {% endif %}
-
+    items.account_id,
+    invoice_lines.class_id
   from invoices
     inner join invoice_lines on invoices.id = invoice_lines.invoice_id
     inner join items on invoice_lines.item_id = items.id
@@ -32,23 +29,25 @@ with invoice_lines as (
 )
 
 select
-  id, txn_date, amount, account_id, 'credit' as transaction_type, 'invoice' as source
-  {% if var('uses_classes') == "true" %}
-    , class_id
-  {% endif %}
-
+  id,
+  txn_date,
+  amount,
+  account_id,
+  'credit' as transaction_type,
+  'invoice' as source,
+  class_id
 from d1
 
 union all
 
 select
-  d1.id, txn_date, amount,
+  d1.id,
+  txn_date,
+  amount,
   ar.id,
   'debit' as transaction_type,
-  'invoice'
-  {% if var('uses_classes') == "true" %}
-    , class_id
-  {% endif %}
+  'invoice',
+  class_id
 from d1
   join (select id from {{ref('quickbooks_accounts')}} where type = 'Accounts Receivable') ar
     on 1 = 1

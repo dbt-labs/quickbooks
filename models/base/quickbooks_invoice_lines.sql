@@ -4,9 +4,7 @@ select
   amount,
   description,
   {{ var('source_key_id_field') }}::int as invoice_id,
-  {% if var('uses_classes') == "true" %}
-    nullif(salesitemlinedetail__classref__value::varchar, '')::bigint as class_id,
-  {% endif %}
+  nullif(salesitemlinedetail__classref__value::varchar, '')::bigint as class_id,
   salesitemlinedetail__itemref__value::int as item_id
 from
   {{ var('base.invoices_lines') }}

@@ -16,12 +16,8 @@ models:
       quickbooks_general_ledger:
         dist: id
         sort: txn_date
-      quickbooks_parent_class_map:
-        enabled: false    # set to true if this quickbooks install uses classes
     base:
       materialized: ephemeral
-      quickbooks_classes:
-        enabled: false    # set to true if this quickbooks install uses classes
 
     vars:
       "base.accounts"                     : "quickbooks.quickbooks_accounts"
@@ -46,5 +42,3 @@ models:
       "base.vendors"                      : "quickbooks.quickbooks_vendors"
       "level_0_id_field"                  : "_sdc_level_0_id"
       "source_key_id_field"               : "_sdc_source_key_id"
-      uses_classes                        : "false"   # set to true if this quickbooks install uses classes
-
