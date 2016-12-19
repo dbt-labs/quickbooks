@@ -18,7 +18,14 @@ with accounts as (
 
 )
 
-select id, txn_date, amount, account_id, transaction_type, source,
+select
+  id,
+  txn_date,
+  amount,
+  account_id,
+  class_id,
+  transaction_type,
+  source,
   amount * multiplier as adj_amount,
   sum(amount * multiplier) over (partition by account_id order by txn_date rows unbounded preceding) as current_account_balance
 from d1
