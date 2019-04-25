@@ -10,13 +10,8 @@ data-paths: ["data"]
 
 models:
   quickbooks:
-    enabled: true
-    materialized: view
     tables:
       materialized: table
-      quickbooks_general_ledger:
-        dist: id
-        sort: txn_date
     base:
       materialized: ephemeral
 
