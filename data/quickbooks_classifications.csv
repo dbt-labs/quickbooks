@@ -1,0 +1,6 @@
+classification,statement,account_type
+Asset,bs,debit
+Liability,bs,credit
+Equity,bs,credit
+Expense,is,debit
+Revenue,is,credit
