@@ -1,0 +1,6 @@
+account_attribute,statement,order
+Income,is1,1
+Other Income,is1,2
+Cost of Goods Sold,is1,3
+Expense,is1,4
+Other Expense,is1,5
