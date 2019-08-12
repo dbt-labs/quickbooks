@@ -26,4 +26,4 @@ Once installation is completed, `dbt run` will build these models along with the
 
 ### contribution
 
-Additional contributions to this repo are very welcome! Please submit PRs to master. All PRs should only include functionality that is contained within all snowplow deployments; no implementation-specific details should be included.
+Additional contributions to this repo are very welcome! Please submit PRs to master. All PRs should only include functionality that is contained within all Quickbooks deployments; no implementation-specific details should be included.
