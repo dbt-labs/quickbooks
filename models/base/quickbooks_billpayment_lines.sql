@@ -11,7 +11,7 @@ with lines as (
   select *,
          {{ var('source_key_id_field') }}::int as bill_payment_id,
          {{ var('level_0_id_field') }}::int as _id
-  from {{ var('base.billpayments_line__linkedtxn') }}
+  from {{ var('base.billpayments_line_linkedtxn') }}
 
 )
 
