@@ -7,6 +7,6 @@ select
   nullif(salesitemlinedetail__classref__value::varchar, '')::bigint as class_id,
   salesitemlinedetail__itemref__value::int as item_id
 from
-  {{ var('base.invoices_lines') }}
+  {{ var('base.invoices_line') }}
 where
   detailtype = 'SalesItemLineDetail'
